@@ -2,26 +2,15 @@
 * Оставить комментарий
 *
 * */
-function getComment() {
-    // Создаем объект обычного комментария
-    let comment = {}
+function addComment() {
+    let comment = new Comment()
 
-    // Запросим имя
-    comment.author = prompt("Как вас зовут ?")
-    if (comment.author == null) {
-        return
+    // проверяем, успешно ли юзер осуществил ввод
+    if (comment.empty) {
+        return;
     }
 
-    // Запросим текст
-    comment.text = prompt("Оставьте отзыв")
-    if (comment.text == null) {
-        return
-    }
-
-    // Сохраним текущее время
-    comment.date = new Date().toLocaleString()
-
-    // Запросим,, хочет ли пользователь оставить полноценный отзыв или это будет обычный комментарий
+    // Запросим, хочет ли пользователь оставить полноценный отзыв или это будет обычный комментарий
     let enableLikes = confirm('Разрешить пользователям оценивать ваш отзыв?')
 
     if (enableLikes) {
@@ -36,6 +25,29 @@ function getComment() {
         // Добавим простой комментарий без возможности оценки
         writeReview(comment)
     }
+}
+
+/*
+* Конструктор, через который создаётся комментарий
+*
+* */
+function Comment() {
+    // Запросим имя
+    this.author = prompt("Как вас зовут ?")
+    if (this.author == null) {
+        this.empty = true
+        return
+    }
+
+    // Запросим текст
+    this.text = prompt("Оставьте отзыв")
+    if (this.text == null) {
+        this.empty = true
+        return
+    }
+
+    // Сохраним текущее время
+    this.date = new Date().toLocaleString()
 }
 
 /*

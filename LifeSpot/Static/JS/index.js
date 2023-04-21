@@ -2,16 +2,6 @@
 * Сохранение данных сессии сразу при заходе пользователя на страницу
 *
 * */
-let session = {
-    'startDate': new Date().toLocaleString(),
-    'userAgent': window.navigator.userAgent,
-    'userAge': prompt("Пожалуйста, введите ваш возраст?")
-}
-
-/*
-* Сохранение данных сессии сразу при заходе пользователя на страницу
-*
-* */
 function handleSession(logger, checker) {
 
     // Проверяем дату захода и проставляем, если новый визит
