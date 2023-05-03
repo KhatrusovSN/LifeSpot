@@ -1,7 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using static LifeSpot.Logger;
 
 namespace LifeSpot
 {
