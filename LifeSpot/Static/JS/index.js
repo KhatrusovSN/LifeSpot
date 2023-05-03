@@ -2,6 +2,16 @@
 * Сохранение данных сессии сразу при заходе пользователя на страницу
 *
 * */
+let session = {
+    'startDate': new Date().toLocaleString(),
+    'userAgent': window.navigator.userAgent,
+    'userAge': null
+}
+
+/*
+* Сохранение данных сессии сразу при заходе пользователя на страницу
+*
+* */
 function handleSession(logger, checker) {
 
     // Проверяем дату захода и проставляем, если новый визит
@@ -53,6 +63,7 @@ let checker = function (newVisit) {
 }
 
 
+
 /*
 * Вывод данных сессии в консоль
 *
@@ -69,13 +80,13 @@ let logger = function () {
 * 
 * */
 
-function filterContent(){
+function filterContent() {
     let elements = document.getElementsByClassName('video-container');
 
-    for (let i = 0; i <= elements.length; i++ ){
+    for (let i = 0; i <= elements.length; i++) {
         let videoText = elements[i].getElementsByTagName('h3')[0].innerText;
 
-        if(!videoText.toLowerCase().includes(inputParseFunction().toLowerCase())){
+        if (!videoText.toLowerCase().includes(inputParseFunction().toLowerCase())) {
             elements[i].style.display = 'none';
         } else {
             elements[i].style.display = 'inline-block';
@@ -85,12 +96,11 @@ function filterContent(){
 
 /*
 * Всплывающее окно будет показано по таймауту
-* 
+*
 * */
 // setTimeout(() =>
 //     alert("Нравится LifeSpot? " + '\n' +  "Подпишитесь на наш Instagram @lifespot999!" ),
 // 7000);
-
 
 
 

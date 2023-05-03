@@ -1,102 +1,154 @@
-﻿/* Комбинированный селектор - применяется ко всем элементам */
-header,footer,aside,body,.navbar,.video-container{
-    font-family: "Helvetica 65 Medium", sans-serif;
+﻿/* Свойства стиля элемента. Подробнее о них в модуле по CSS */
+.bordered {
+    border: 2px solid black;
+    background-color: azure;
+    padding: 10px;
 }
 
-header,footer,body,.video-container{
+.video-container {
+    display: inline-block;
+    padding-left: 1%;
+}
+
+header {
+    padding-left: 1%;
+    color: black;
+}
+
+#header-index {
+    color: #44453f;
+}
+
+header, footer, body {
     background-color: linen;
 }
 
-/* Компоненты iframe со встроенным видео */
-.video-container{
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: medium;
+    color: dimgrey;
+    line-height: 66%;
+    padding-left: 1%;
+}
+
+.navbar {
+    color: darkgray;
+    padding-left: 15%;
+}
+
+    .navbar a:hover {
+        background-color: aqua;
+    }
+
+aside {
+    height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+    width: 10%;
+    position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
+    z-index: 1; /* Сайд-бар будет поверх остальных элементов */
+    top: 0; /* Сайдбар будет в самой верхней части страницы */
+    left: 0;
+    background-color: #111; /* Черный цвет фона (задан в виде кода) */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    padding-top: 20px;
+}
+
+body {
+    padding-left: 11%;
+}
+/* Комбинированный селектор - применяется ко всем элементам */
+header, footer, aside, body, .navbar, .video-container {
+    font-family: "Helvetica 65 Medium", sans-serif;
+}
+
+#searchBarTop {
+    margin-bottom: 20px;
+}
+
+
+    #searchBarTop:focus {
+        background-color: yellow;
+        border: solid 3px aqua;
+    }
+
+.review-container, .review-button {
     display: inline-block;
     margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;
 }
 
-.review-container,.review-button{
-    display: inline-block;
-    margin-top: 0.5em;
-    padding-left: 1%;
-    padding-top: 1%;
-}
-
-.review-text{
+.review-text {
     display: block;
     margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;
 }
 
-
-/* Стили панели навигации */
-.navbar p{
-    color: darkgray;
-    padding-left: 15%;
-}
-
-/* Стили панели навигации при наведении мышью */
-.navbar p:hover{
-    color: aliceblue;
-}
-
-/* Глобальные стили для хедеров на всём сайте */
-header{
-    color: black;
-    padding-left: 1%;
-    padding-top: 1.2%;
-}
-/* Стиль хедера для главной страницы имеет приоритет, 
-так как используется селектор по идентификатору */
-#header-index{
-    color: #44453f;
-}
-
-/* Стили футера */
-footer {
+.slider-container {
     position: relative;
-    bottom: 0;
-    font-size: medium;
-    color: dimgrey;
-    line-height: 66%;
-    padding-left: 1%;
-    padding-bottom: 1%;
-    margin-top: auto;
+    display: inline-block;
+    width: 980px;
+    height: 400px;
+    overflow: hidden;
 }
 
-aside{
-    min-height: 100vh; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
-    width: 10%;
-    min-width: 200px;
-    z-index: 1;
-    position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
-    top: 0; /* Сайдбар будет в самой верхней части страницы */
+.slide {
+    position: absolute;
+    top: 0;
     left: 0;
-    background-color: #111; /* Черный цвет фона (задан в виде кода) */
-    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
-    padding-top: 2%;
-    font-size: large;
-}
-
-body{
-    padding-left: 250px;
     height: 100%;
-    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.active {
+    opacity: 1;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.dots {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    opacity: 1;
+    z-index: 99;
 }
 
-a{
-    text-decoration: none;
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 99;
 }
 
-input {
-    border: 2px solid darkgrey;
-    border-radius: 2px;
-    outline: none;
-}
-
-input:focus {
-    border: 2px solid dimgrey;
-}
+    .dot.active {
+        background-color: #717171;
+    }

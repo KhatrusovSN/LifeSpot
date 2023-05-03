@@ -1,4 +1,27 @@
 ﻿/*
+* Конструктор, через который создаётся комментарий
+*
+* */
+function Comment() {
+    // Запросим имя
+    this.author = prompt("Как вас зовут ?")
+    if (this.author == null) {
+        this.empty = true
+        return
+    }
+
+    // Запросим текст
+    this.text = prompt("Оставьте отзыв")
+    if (this.text == null) {
+        this.empty = true
+        return
+    }
+
+    // Сохраним текущее время
+    this.date = new Date().toLocaleString()
+}
+
+/*
 * Оставить комментарий
 *
 * */
@@ -26,30 +49,6 @@ function addComment() {
         writeReview(comment)
     }
 }
-
-/*
-* Конструктор, через который создаётся комментарий
-*
-* */
-function Comment() {
-    // Запросим имя
-    this.author = prompt("Как вас зовут ?")
-    if (this.author == null) {
-        this.empty = true
-        return
-    }
-
-    // Запросим текст
-    this.text = prompt("Оставьте отзыв")
-    if (this.text == null) {
-        this.empty = true
-        return
-    }
-
-    // Сохраним текущее время
-    this.date = new Date().toLocaleString()
-}
-
 /*
  * Запишем объект на страницу
  *
@@ -69,8 +68,6 @@ const writeReview = review => {
     // Запишем результат 
     document.getElementsByClassName('reviews')[0].innerHTML += ' <div class="review-    text">\n' + `<p> <i> <b>${review['author']}</b> ${review['date']}${likeCounter}</i></p>` + `<p>${review['text']}</p>` + '</div>';
 }
-
-
 /*
 * Увеличивает счётчик лайков
 *

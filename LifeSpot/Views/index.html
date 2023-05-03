@@ -1,48 +1,74 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>LifeSpot</title>
-        <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
-        
-        <script type="text/javascript" src="../Static/JS/index.js"></script>
-        <script>
-            // обработка сессии
-            handleSession(logger, checker /* Коллбек-функции */);
+<head>
+    <meta charset="UTF-8">
+    <title>LifeSpot</title>
+    <!--Подключение стилей по относительному пути из внешнего файла-->
+    <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../Static/JS/index.js" charset="utf-8"></script>
+    <!-- Внутренний скрипт с вызовами функций -->
+    <script>
+        // обработка сессии
+        handleSession(logger, checker /* Коллбек-функции */);
 
-            // функция для получения пользовательского ввода
-            const inputParseFunction = function () {
-                return document.getElementsByTagName('input')[0].value.toLowerCase();
-            }
-        </script>
-        
-    </head>
-    
-    <!-- Хедер страницы находится над тегом body -->
+        // функция для получения пользовательского ввода
+        const inputParseFunction = function () {
+            return document.getElementsByTagName('input')[0].value.toLowerCase();
+        }
+        /*
+        * Всплывающее окно будет показано по таймауту
+        *
+        * */
+        /*setTimeout(() =>
+            alert("Нравится LifeSpot? " + '\n' + "Подпишитесь на наш Instagram @lifespot999!"),
+            30000);*/
+    </script>
+</head>
+<body>
     <header id="header-index">
-        <h1>LifeSpot - прямые трансляции с улиц</h1>
+        <!--Заголовок страницы-->
+        <h1>LifeSpot — прямые трансляции с улиц</h1>
+        <!--Параграф-->
         <p>Покажем, что происходит прямо сейчас</p>
-        <input type="text" oninput="filterContent()" size=50%>
+        <input type="text" id="searchBarTop" name="searchbar" oninput="filterContent()
+            // Функция объявлена через expression
+       /*const inputParseFunction = function(){
+           return document.getElementsByTagName('input')[0].value.toLowerCase();
+       }*/
+       // Вызов (функция в аргумент передаётся без круглых скобок)
+       //filterContent( inputParseFunction )
+    " placeholder="Поиск по видео..." />
     </header>
-    
-    <!--SIDEBAR-->
-    
-    <body>
-        <div class="bordered">
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h3>Нью-Йорк, Брайант Парк</h3>
-            </div>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h3>Санкт-Петербург, Невский Проспект</h3>
-            </div>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/muVgPUnU7qA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h3>Лондон, автобусный маршрут</h3>
-            </div>
+    <div class="bordered">
+        <!--Кнопки, обернутые в ссылки-->
+        <!-- <a href="https://www.youtube.com/watch?v=wCcMcaiRbhM"><button>Санкт-Петербург</button></a>
+        <a href="https://www.youtube.com/watch?v=srlpC5tmhYs"><button>Нью-Йорк</button></a>
+        <a href="https://www.youtube.com/watch?v=JplMzss6_YE&ab_channel=WokiliWanders"><button>Лондон</button></a>-->
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h3 class="video-title">Санкт-Петербург, Невский Проспект</h3>
         </div>
-    </body>
-    
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h3 class="video-title">Нью-Йорк, Брайант Парк</h3>
+        </div>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h3 class="video-title">Лондон, автобусный маршрут</h3>
+        </div>
+    </div>
+    <!--Футер страницы находится под основной частью (body)-->
     <!--FOOTER-->
+    <!--Сайд-бар страницы-->
+    <!--SIDEBAR-->
+    <!-- <ul>
+        <li><a href="https://www.google.ru" target="myframe">Google</a></li>
+        <li><a href="http://www.yandex.ru/" target="myframe">Yandex</a></li>
+        <li><a href="https://duckduckgo.com/" target="myframe">DuckDuckGo</a></li>
+    </ul>
+    <iframe src="http://www.yandex.ru/" name="myframe" width="500" height="600">Не грузится пораша</iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xmdOZo-Tf10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31588.926500130223!2d25.096667899999996!3d60.34102759999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sfi!4v1678455132299!5m2!1sru!2sfi" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+
+</body>
 </html>
